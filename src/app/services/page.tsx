@@ -1,16 +1,14 @@
-// pages/index.tsx
-import Card from '@/app/components/Card';
-import Footer from './components/footer';
+import React from 'react'
+import Card from '../components/Card';
+import Footer from '../components/footer';
 
-// Define types for the card data items
 interface CardData {
   title: string;
   description: string;
   imageUrl: string;
   link: string;
 }
-
-export default function Home() {
+const page = () => {
   const cardData: CardData[] = [
     {
       title: 'Amazing Service 1',
@@ -34,15 +32,10 @@ export default function Home() {
       link: '/products/product3',
     },
   ];
-
   return (
-    <>
-     
-      <main className="container mx-auto p-4">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
-          Welcome to Our Website
-        </h1>
-        <div className="container mx-auto p-1"><h2 className="text-2xl font-bold text-center text-gray-800 mb-8">This is the Home page. Add your information here!</h2></div>
+    <div>
+        <h1 className="text-4xl text-center mt-10">Services</h1>
+        <p className="text-center mt-4">This is the Services page. Add your information here!</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {cardData.map((card, index) => (
@@ -55,11 +48,9 @@ export default function Home() {
             />
           ))}
         </div>
-        
-        <div>
-          <Footer />
-        </div>
-      </main>
-    </>
-  );
+        <div><Footer/></div>
+    </div>
+  )
 }
+
+export default page
